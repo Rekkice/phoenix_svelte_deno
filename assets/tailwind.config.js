@@ -9,7 +9,8 @@ module.exports = {
   content: [
     "./js/**/*.js",
     "../lib/phoenix_svelte_deno_web.ex",
-    "../lib/phoenix_svelte_deno_web/**/*.*ex"
+    "../lib/phoenix_svelte_deno_web/**/*.*ex",
+    "./svelte/**/*.svelte"
   ],
   theme: {
     extend: {

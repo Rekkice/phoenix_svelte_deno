@@ -90,6 +90,8 @@ defmodule PhoenixSvelteDenoWeb do
       # Core UI components
       import PhoenixSvelteDenoWeb.CoreComponents
 
+      import LiveSvelte
+
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 

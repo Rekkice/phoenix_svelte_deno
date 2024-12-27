@@ -38,7 +38,6 @@ defmodule PhoenixSvelteDeno.MixProject do
       {:phoenix_live_view, "~> 1.0.0"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.3"},
-      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
@@ -54,7 +53,9 @@ defmodule PhoenixSvelteDeno.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:live_svelte, "~> 0.14.1"},
+      {:deno_rider, "~> 0.1"}
     ]
   end
 
@@ -66,12 +67,17 @@ defmodule PhoenixSvelteDeno.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind phoenix_svelte_deno", "esbuild phoenix_svelte_deno"],
+      setup: [
+        "deps.get",
+        "assets.setup",
+        "assets.build",
+        "cmd --cd assets npm install"
+      ],
+      "assets.setup": ["tailwind.install --if-missing"],
+      "assets.build": ["tailwind phoenix_svelte_deno"],
       "assets.deploy": [
         "tailwind phoenix_svelte_deno --minify",
-        "esbuild phoenix_svelte_deno --minify",
+        "cmd --cd assets node build.js --deploy",
         "phx.digest"
       ]
     ]

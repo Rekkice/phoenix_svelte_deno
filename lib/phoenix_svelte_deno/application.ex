@@ -8,8 +8,10 @@ defmodule PhoenixSvelteDeno.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {NodeJS.Supervisor, [path: LiveSvelte.SSR.NodeJS.server_path(), pool_size: 4]},
       PhoenixSvelteDenoWeb.Telemetry,
-      {DNSCluster, query: Application.get_env(:phoenix_svelte_deno, :dns_cluster_query) || :ignore},
+      {DNSCluster,
+       query: Application.get_env(:phoenix_svelte_deno, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhoenixSvelteDeno.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: PhoenixSvelteDeno.Finch},

@@ -15,7 +15,8 @@ config :phoenix_svelte_deno, PhoenixSvelteDenoWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "UxoSpBFYy2nb7sZleTKRBIH6UPu6wu+QpCCc+/PfVSJiNeJeTwMqfLIsfHbx6oux",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:phoenix_svelte_deno, ~w(--sourcemap=inline --watch)]},
+    node: ["build.js", "--watch", cd: Path.expand("../assets", __DIR__)],
+    # esbuild: {Esbuild, :install_and_run, [:phoenix_svelte_deno, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:phoenix_svelte_deno, ~w(--watch)]}
   ]
 
