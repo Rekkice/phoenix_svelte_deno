@@ -18,7 +18,8 @@ defmodule PhoenixSvelteDeno.Application do
       # Start a worker by calling: PhoenixSvelteDeno.Worker.start_link(arg)
       # {PhoenixSvelteDeno.Worker, arg},
       # Start to serve requests, typically the last entry
-      PhoenixSvelteDenoWeb.Endpoint
+      PhoenixSvelteDenoWeb.Endpoint,
+      PhoenixSvelteDeno.TodoCache
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

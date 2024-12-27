@@ -17,13 +17,8 @@ defmodule PhoenixSvelteDenoWeb.Router do
   scope "/", PhoenixSvelteDenoWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", ChatLive, :show
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", PhoenixSvelteDenoWeb do
-  #   pipe_through :api
-  # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:phoenix_svelte_deno, :dev_routes) do
