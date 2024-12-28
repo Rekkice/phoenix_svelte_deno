@@ -1,5 +1,7 @@
 # PhoenixSvelteDeno
 
+Ejemplo de aplicación Phoenix que usa LiveSvelte con Deno como runtime.
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
