@@ -2,6 +2,20 @@
 
 Ejemplo de aplicación Phoenix que usa LiveSvelte con Deno como runtime.
 
+## Resultados de benchmark
+
+```markdown
+### deno
+[info] Rendering in Deno took 4244 µs // initial render
+[info] Rendering in Deno took 386 µs // refresh
+[info] Rendering in Deno took 404 µs // with a single todo
+
+### nodejs 22
+[info] Rendering in Node took 9442 µs // initial render
+[info] Rendering in Node took 1278 µs // refresh
+[info] Rendering in Node took 1280 µs // with a single todo
+```
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
