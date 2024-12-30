@@ -19,7 +19,8 @@ defmodule PhoenixSvelteDeno.Application do
       # {PhoenixSvelteDeno.Worker, arg},
       # Start to serve requests, typically the last entry
       PhoenixSvelteDenoWeb.Endpoint,
-      PhoenixSvelteDeno.TodoCache
+      PhoenixSvelteDeno.TodoCache,
+      {DenoRider, [main_module_path: "priv/svelte/server.js"]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

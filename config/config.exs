@@ -21,6 +21,8 @@ config :phoenix_svelte_deno, PhoenixSvelteDenoWeb.Endpoint,
   pubsub_server: PhoenixSvelteDeno.PubSub,
   live_view: [signing_salt: "wSH01mRO"]
 
+config :live_svelte, ssr_module: PhoenixSvelteDenoWeb.SSR.Deno
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
